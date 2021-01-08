@@ -1,3 +1,19 @@
+```python
+import numpy as np
+import pandas as pd
+
+import seaborn as sns
+import matplotlib.pyplot as plt
+%matplotlib inline
+
+### 识别中文字体
+plt.rcParams['font.sans-serif'] = ['SimHei']  # 中文字体设置-黑体
+plt.rcParams['axes.unicode_minus'] = False  # 解决保存图像是负号'-'显示为方块的问题
+sns.set(font='SimHei')  # 解决Seaborn中文显示问题
+```
+
+
+
 # _Seaborn 纲要
 
 定位：seaborn是Python中基于matplotlib的具有更多可视化功能和更优美绘图风格的绘图模块。应强调的是，应该把Seaborn视为matplotlib的补充，而不是替代物。

@@ -3,8 +3,17 @@
 定位：Matplotlib能高度兼容numpy与pandas数据结构以及scipy与statsmodels等统计模块
 
 ```python
+import numpy as np
+import pandas as pd
+
+import seaborn as sns
 import matplotlib.pyplot as plt
 %matplotlib inline
+
+### 识别中文字体
+plt.rcParams['font.sans-serif'] = ['SimHei']  # 中文字体设置-黑体
+plt.rcParams['axes.unicode_minus'] = False  # 解决保存图像是负号'-'显示为方块的问题
+sns.set(font='SimHei')  # 解决Seaborn中文显示问题
 ```
 
 
