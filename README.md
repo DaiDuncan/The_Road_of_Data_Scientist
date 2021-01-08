@@ -2,7 +2,7 @@
 数据科学基本功
 
 # Files
-
+<pre>
 Workspace:.
 │  .gitignore
 │  files.txt
@@ -308,7 +308,7 @@ Workspace:.
     ├─操作系统
     └─服务器
             PC DNS服务器.md
-
+</pre>
 
 
 
