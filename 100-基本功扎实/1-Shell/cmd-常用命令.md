@@ -232,8 +232,10 @@ more c:/test.txt    #逐屏显示 c:/test.txt 的文件内容
 
 - tree显示目录结构
 
-
-
 ```powershell
+TREE [drive:][path] [/F] [/A]
 tree d:/            #显示D盘的文件目录结构
+
+# 示例
+tree /f >tree.txt
 ```
