@@ -8,7 +8,7 @@ import pandas as pd
 
 import seaborn as sns
 import matplotlib.pyplot as plt
-%matplotlib inline
+%matplotlib inline #如果不加上%maplotlib inline 的话，每次figure的显示都需要plt.show()
 
 ### 识别中文字体
 plt.rcParams['font.sans-serif'] = ['SimHei']  # 中文字体设置-黑体
