@@ -1,0 +1,557 @@
+#  日志级别
+
+不同的日志级别代表不同的紧急程度，反应出系统运行的状况
+
+| 级别     | 适用场景                                             |
+| :------- | :--------------------------------------------------- |
+| DEBUG    | 记录详细信息，用于程序调试                           |
+| INFO     | 记录可证明程序正常执行的信息                         |
+| WARNING  | 记录意外信息，此时程序仍可正常执行，但需要关注       |
+| ERROR    | 明显发生一些错误，部分功能无法正常工作，需要立刻处理 |
+| CRITICAL | 严重错误，程序已经不能继续执行了                     |
+
+一个系统，要根据日志的内容将其归入到不同的级别中，相同级别的日志输出到同一个日志文件中
+
+这样，可以快速发现问题，定位问题。
+
+如果将所有级别的日志都输出到同一个日志文件中，那么观察日志就变得麻烦，ERROR日志混杂其他级别日志中，不利于问题的发现和追查。
+
+
+
+## 配置日志级别
+
+```python
+import logging
+
+logging.basicConfig(level=logging.ERROR)
+logging.debug('debug message')
+logging.info('info message')
+logging.warning('warning message')
+logging.error('error message')
+logging.critical('critical message')
+
+
+'''output
+ERROR:root:error message
+CRITICAL:root:critical message
+'''
+```
+
+通过设置level=loggin.ERROR，日志在输出的时候：
+
+- 只有大于等于ERROR的日志才会被输出，如果不设置level，默认是WARNING级别。
+
+
+
+
+
+# Logger
+
+Logger是记录器，是程序可以直接使用的接口
+
+为了在实际工作中实现复杂的技术要求，我们不会使用上述日志方法，而是创建Logger，用Logger管理日志的输出
+
+```python
+import logging
+
+logger = logging.getLogger('my_log')
+logger.setLevel(logging.ERROR)
+logger.debug('debug message')
+logger.info('info message')
+logger.warning('warn message')
+logger.error('error message')
+logger.critical('critical message')
+
+'''output
+error message
+critical message
+'''
+```
+
+
+
+
+
+# Handler
+
+上述例子的程序运行时，日志直接输出到终端，这是因为，如果不显式的创建一个Logger，就会默认创建一个root logger，如果不指定Handler，则默认使用StreamHandler将日志输出到标准输出上
+
+
+
+## FileHandler
+
+FileHandler 将日志输出到指定的文件中
+
+```python
+import logging
+
+
+logger = logging.getLogger('my_log')                # 创建logger
+file_handler = logging.FileHandler("test.log")      # 创建文件handler
+file_handler.setLevel(logging.ERROR)                # 设置日志级别
+logger.addHandler(file_handler)                     # 添加处理器
+
+logger.setLevel(logging.DEBUG)
+logger.debug('debug message')
+logger.info('info message')
+logger.warning('warn message')
+logger.error('error message')
+logger.critical('critical message')
+```
+
+
+
+执行程序，会创建一个test.log，文件里的内容是：
+
+```text
+error message
+critical message
+```
+
+
+
+这里你会看到两次执行setLevel，logger.setLevel设置的日志级别决定了什么类型的日志会进入到Handler中，而file_handler.setLevel设置的日志级别决定了什么样的日志会写入到文件中。
+
+logger设置日志级别相当于一个总开关，而file_handler设置的日志级别则是一个小开关，毕竟，一个logger下可以添加多个handler，每个handler都可以设置各自的日志级别。
+
+
+
+## StreamHandler
+
+StreamHandler可以将日志输出到流中，例如sys.stdout, sys.stderr， 以及实现了write和flush方法的类文件对象。
+
+```python
+import logging
+import sys
+
+
+logger = logging.getLogger('my_log')                # 创建logger
+file_handler = logging.FileHandler("test.log")      # 创建文件handler
+file_handler.setLevel(logging.ERROR)                # 设置日志级别
+logger.addHandler(file_handler)                     # 添加处理器
+
+stream_handler = logging.StreamHandler(sys.stdout)
+stream_handler.setLevel(logging.WARNING)
+logger.addHandler(stream_handler)
+
+
+logger.setLevel(logging.DEBUG)
+logger.debug('debug message')
+logger.info('info message')
+logger.warning('warn message')
+logger.error('error message')
+logger.critical('critical message')
+```
+
+上面的代码，增加了一个stream_handler，将日志输出到标准输出，file_handler将日志输出到文件，这就是handler的用处。
+
+logger提供了日志输出接口，一条日志可以通过handler同时输出到不同的文件或stream中。
+
+在使用docker镜像时，通常会将程序的日志输出到标准输出中，于此同时也会保留一份在文件中，遇到类似这样的场景，你就可以像上面这段代码一样将日志多个目的地同时输出。
+
+
+
+
+
+# Formatter
+
+## 日志格式
+
+格式化器可以用来定义日志的内容和格式
+
+有许多信息是不需要你在日志信息中自己搜集处理的，比如日志输出时所在的filename,调用日志输出的函数名，这些信息logging模块已经帮你搜集处理好，你只需要配置那些输出，以及以什么方式输出即可。
+
+```text
+%(name)s Logger的名字
+%(levelno)s 数字形式的日志级别
+%(levelname)s 文本形式的日志级别
+%(pathname)s 调用日志输出函数的模块的完整路径名，可能没有
+%(filename)s 调用日志输出函数的模块的文件名
+%(module)s 调用日志输出函数的模块名|
+%(funcName)s 调用日志输出函数的函数名|
+%(lineno)d 调用日志输出函数的语句所在的代码行
+%(created)f 当前时间，用UNIX标准的表示时间的浮点数表示|
+%(relativeCreated)d 输出日志信息时的，自Logger创建以来的毫秒数|
+%(asctime)s 字符串形式的当前时间。默认格式是“2003-07-08 16:49:45,896”。逗号后面的是毫秒
+%(thread)d 线程ID。可能没有
+%(threadName)s 线程名。可能没有
+%(process)d 进程ID。可能没有
+%(message)s 用户输出的消息
+```
+
+
+
+创建一个Formatter对象时，传入的fmt参数里可以从中选取你想要输出的内容
+
+```python
+import logging
+import sys
+
+
+logger = logging.getLogger('my_log')                # 创建logger
+file_handler = logging.FileHandler("test.log")      # 创建文件handler
+file_handler.setLevel(logging.ERROR)                # 设置日志级别
+
+# 设置日志格式
+formater = logging.Formatter(fmt='%(asctime)s %(filename)s[line:%(lineno)d] %(levelname)s %(message)s', datefmt='%Y-%m-%d %H:%M:%S')
+file_handler.setFormatter(formater)
+logger.addHandler(file_handler)                     # 添加处理器
+
+stream_handler = logging.StreamHandler(sys.stdout)
+stream_handler.setLevel(logging.WARNING)
+logger.addHandler(stream_handler)
+
+
+logger.setLevel(logging.DEBUG)
+logger.debug('debug message')
+logger.info('info message')
+logger.warning('warn message')
+logger.error('error message')
+logger.critical('critical message')
+```
+
+fmt 参数设置了以什么样的顺序输出哪些内容，datefmt设置了时间的格式。
+
+由于只在file_handler进行了设置，因此，这个格式也只在file_handler 起作用，stream_handler记录的日志不受影响。
+
+在test.log中输出的内容如下：
+
+```text
+2019-01-23 20:55:19 demo1.py[line:21] ERROR error message
+2019-01-23 20:55:19 demo1.py[line:22] CRITICAL critical message
+```
+
+
+
+## json格式
+
+工作中，往往希望将日志以json格式输出，这样便于收集处理，例如使用logstash收集日志。
+
+
+
+想要输出json格式的日志，需要创建一个新的类，继承logging.Formatter并重载format方法。
+
+format方法传入一个record对象，这里保存了日志的所有数据，只需要将数据进行整理最后使用json.dumps方法转成json格式数据返回即可。
+
+不过在这之前，仍然需要定义fmt， 我在示例中将fmt定义为'timestamp,filename,lineno,levelname,msg' ， 我希望能按照如下顺序和内容输出json格式的日志。
+
+```python
+import logging
+import json
+import sys
+from collections import OrderedDict
+
+
+class JsonFormatter(logging.Formatter):
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.parse()
+
+    def parse(self):
+        # self._fmt 就是 'timestamp,filename,lineno,levelname,msg'
+        self.fields = self._fmt.split(",")
+
+    def format(self, record):
+        """
+        重载format方法,返回json格式字符串
+        :param record:
+        :return:
+        """
+        log_record = OrderedDict()
+        for field in self.fields:
+            if field == 'timestamp':
+                log_record[field] = self.formatTime(record, self.datefmt)
+            else:
+                log_record[field] = record.__dict__.get(field, "")
+        # ensure_ascii 设置为False,确保正常输出中文
+        log_record = json.dumps(log_record, ensure_ascii=False)
+        return log_record
+
+logger = logging.getLogger('my_log')                # 创建logger
+file_handler = logging.FileHandler("test.log")      # 创建文件handler
+file_handler.setLevel(logging.ERROR)                # 设置日志级别
+formater = JsonFormatter(fmt='timestamp,filename,lineno,levelname,msg', datefmt='%Y-%m-%d %H:%M:%S')
+file_handler.setFormatter(formater)
+logger.addHandler(file_handler)                     # 添加处理器
+
+stream_handler = logging.StreamHandler(sys.stdout)
+stream_handler.setLevel(logging.WARNING)
+logger.addHandler(stream_handler)
+
+
+logger.setLevel(logging.DEBUG)
+logger.debug('debug message')
+logger.info('info message')
+logger.warning('warn message')
+logger.error('error message')
+logger.critical('critical message')
+logger.error("中文")
+```
+
+
+
+test.log输出的内容为：
+
+```text
+{"timestamp": "2019-01-23 21:47:46", "filename": "demo1.py", "lineno": 42, "levelname": "ERROR", "msg": "error message"}
+{"timestamp": "2019-01-23 21:47:46", "filename": "demo1.py", "lineno": 43, "levelname": "CRITICAL", "msg": "critical message"}
+{"timestamp": "2019-01-23 21:47:46", "filename": "demo1.py", "lineno": 44, "levelname": "ERROR", "msg": "中文"}
+```
+
+
+
+
+
+# Filter 过滤器
+
+通过设置logger和 handler的日志级别来实现日志的过滤，但这样的控制还是过于粗糙，Filter可以实现更加细致的过滤。
+
+```python
+def filter(self, record):
+```
+
+入参record对象包含了日志的全部信息，这些信息都在record.__dict__中，你可以通过继承logging.Filter类来实现更加复杂的过滤，比如，工作中需要将不同级别的日志输出到不同的日志文件中，这样查找的效率会更高。
+
+```python
+class LogLevelFilter(logging.Filter):
+    def __init__(self, name='', level=logging.INFO):
+        super().__init__(name)
+        self.level = level
+
+    def filter(self, record):
+        return record.levelno == self.level
+```
+
+重载了filter方法，只有当日志的级别和Filter的过滤级别相同时才会输出日志
+
+
+
+下面的代码演示了如何使用这个过滤器
+
+```python
+import logging
+import json
+import sys
+from collections import OrderedDict
+
+
+class JsonFormatter(logging.Formatter):
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.parse()
+
+    def parse(self):
+        # self._fmt 就是 'timestamp,filename,lineno,levelname,msg'
+        self.fields = self._fmt.split(",")
+
+    def format(self, record):
+        """
+        重载format方法,返回json格式字符串
+        :param record:
+        :return:
+        """
+        log_record = OrderedDict()
+        for field in self.fields:
+            if field == 'timestamp':
+                log_record[field] = self.formatTime(record, self.datefmt)
+            else:
+                log_record[field] = record.__dict__.get(field, "")
+
+        log_record = json.dumps(log_record, ensure_ascii=False)
+        return log_record
+
+
+class LogLevelFilter(logging.Filter):
+    def __init__(self, name='', level=logging.INFO):
+        super().__init__(name)
+        self.level = level
+
+    def filter(self, record):
+        return record.levelno == self.level
+
+logger = logging.getLogger('my_log')                # 创建logger
+file_handler = logging.FileHandler("test.log")      # 创建文件handler
+file_handler.setLevel(logging.INFO)                 # 设置日志级别
+formater = JsonFormatter(fmt='timestamp,filename,lineno,levelname,msg', datefmt='%Y-%m-%d %H:%M:%S')
+file_handler.setFormatter(formater)
+file_handler.addFilter(LogLevelFilter(level=logging.INFO))
+logger.addHandler(file_handler)                     # 添加处理器
+
+logger.setLevel(logging.DEBUG)
+logger.debug('debug message')
+logger.info('info message')
+logger.warning('warn message')
+logger.error('error message')
+logger.critical('critical message')
+logger.error("中文")
+```
+
+
+
+# LoggerAdapter 扩展
+
+Formatter允许你定义日志的输出的格式和内容，但这些信息往往不能满足实际需求。
+
+
+
+比如在一个web服务中，我们希望记录下一次请求的客户端ip地址，也可能是方便追查问题的trace_id，也可能是此次请求的uri, 这些信息都是logging模块无法主动收集的，而且，每次请求中，这些信息都是变化的，如果能将这些信息记录下来，那么对于信息的统计和分析是非常有帮助的。
+
+
+
+LoggerAdapter 是对logger一个扩展，它允许你传入一个字典，字典里的数据可以在record 的`__dict__`中查询到，logging模块自己收集到的信息也放在`__dict__`。
+
+
+
+每次请求到达时，你可以先将和这次请求相关的信息收集到，然后创建一个LoggerAdapter对象，它的构造函数允许传入一个logger对象和一个字典。那么接下来，记录日志时，就要使用LoggerAdapter对象而不再是使用logger对象。
+
+```python
+import logging
+import json
+from logging import LoggerAdapter
+from collections import OrderedDict
+
+
+class JsonFormatter(logging.Formatter):
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.parse()
+
+    def parse(self):
+        # self._fmt 就是 'timestamp,filename,lineno,levelname,msg'
+        self.fields = self._fmt.split(",")
+
+    def format(self, record):
+        """
+        重载format方法,返回json格式字符串
+        :param record:
+        :return:
+        """
+        log_record = OrderedDict()
+        print(record.__dict__)
+        for field in self.fields:
+            if field == 'timestamp':
+                log_record[field] = self.formatTime(record, self.datefmt)
+            else:
+                log_record[field] = record.__dict__.get(field, "")
+
+        log_record = json.dumps(log_record, ensure_ascii=False)
+        return log_record
+
+
+class LogLevelFilter(logging.Filter):
+    def __init__(self, name='', level=logging.INFO):
+        super().__init__(name)
+        self.level = level
+
+    def filter(self, record):
+        return record.levelno == self.level
+
+logger = logging.getLogger('my_log')                # 创建logger
+file_handler = logging.FileHandler("test.log")      # 创建文件handler
+file_handler.setLevel(logging.INFO)                 # 设置日志级别
+formater = JsonFormatter(fmt='timestamp,ip,filename,lineno,levelname,msg', datefmt='%Y-%m-%d %H:%M:%S')
+file_handler.setFormatter(formater)
+file_handler.addFilter(LogLevelFilter(level=logging.INFO))
+logger.addHandler(file_handler)                     # 添加处理器
+logger.setLevel(logging.DEBUG)
+
+la = LoggerAdapter(logger, {"ip": '123.56.190.188'})
+
+la.debug('debug message')
+la.info('info message')
+la.warning('warn message')
+la.error('error message')
+la.critical('critical message')
+la.error("中文")
+```
+
+修改主要体现在三处
+
+1. 创建了一个LoggerAdapter对象，扩展了ip信息
+2. 创建JsonFormatter对象时，fmt参数增加了ip这个字段
+3. 日志输出，不再使用logger对象，而是使用LoggerAdapter对象，其实，la仅仅是对logger对象做了一层包装而已
+
+
+
+
+
+下面的代码是LoggerAdapter的定义，LoggerAdapter对象的所有操作，其实都是通过self.logger完成的。
+
+```python
+class LoggerAdapter(object):
+    """
+    An adapter for loggers which makes it easier to specify contextual
+    information in logging output.
+    """
+
+    def __init__(self, logger, extra):
+        """
+        Initialize the adapter with a logger and a dict-like object which
+        provides contextual information. This constructor signature allows
+        easy stacking of LoggerAdapters, if so desired.
+
+        You can effectively pass keyword arguments as shown in the
+        following example:
+
+        adapter = LoggerAdapter(someLogger, dict(p1=v1, p2="v2"))
+        """
+        self.logger = logger
+        self.extra = extra
+```
+
+
+
+
+
+# 应用|记录错误
+
+既然我们能捕获错误，就可以把错误堆栈打印出来，然后分析错误原因，同时，让程序继续执行下去。
+
+```python
+# err_logging.py
+
+import logging
+
+def foo(s):
+    return 10 / int(s)
+
+def bar(s):
+    return foo(s) * 2
+
+def main():
+    try:
+        bar('0')
+    except Exception as e:
+        logging.exception(e)
+
+main()
+print('END')
+```
+
+同样是出错，但程序打印完错误信息后会继续执行，并正常退出：
+
+```shell
+$ python3 err_logging.py
+ERROR:root:division by zero
+Traceback (most recent call last):
+  File "err_logging.py", line 13, in main
+    bar('0')
+  File "err_logging.py", line 9, in bar
+    return foo(s) * 2
+  File "err_logging.py", line 6, in foo
+    return 10 / int(s)
+ZeroDivisionError: division by zero
+END
+```
+
+通过配置，`logging`还可以把错误记录到日志文件里，方便事后排查。
+
+
+
+
+
+
+
+# #参考文献
+
+[Link: 教程|李雪峰](https://www.liaoxuefeng.com/wiki/1016959663602400/1017598873256736)
