@@ -1,6 +1,12 @@
 # The_Road_of_Data_Scientist
 数据科学基本功
 
+
+
+专注|“Only through focus can you do world-class things, no matter how capable you are.”  ——Bill Gates
+
+
+
 # Files
 <pre>
 Workspace:.
