@@ -2,17 +2,23 @@
 <p align="right">—— 数据科学基本功</p>
 <br>
 
-- 源泉|乐趣Delight
-    - 💲Money
-    - 🏋️‍Challenge
-    - 💪Implement && Enlightenment🌈
-    - 💖Share
-- 心态|专注Focus<br>
-> “Only through focus can you do world-class things, no matter how capable you are.”  ——Bill Gates
+**源泉|乐趣Delight**
+- 💲Money
+- 🏋️‍Challenge
+- 💪Implement && Enlightenment🌈
+- 💖Share
 
-- 原则|迭代Iterate
-    - MVK(Minimum Viable Knowledge)
-    - Project & Accountability
+<br>
+
+**心态|专注Focus**<br>
+> “Only through focus can you do world-class things, no matter how capable you are.”  
+> <p align="right">——Bill Gates</p>
+
+<br>
+
+**原则|迭代Iterate**
+- MVK(Minimum Viable Knowledge)
+- Project & Accountability
 ---
 ### [Table of Contents](#Start)
 #### [I. 主要内容](#Contents)
