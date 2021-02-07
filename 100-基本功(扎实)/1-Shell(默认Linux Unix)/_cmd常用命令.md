@@ -259,10 +259,13 @@ more c:/test.txt    #逐屏显示 c:/test.txt 的文件内容
 
 ```shell
 TREE [drive:][path] [/F] [/A]
+# /F 不区分大小写   显示每个文件夹中文件的名称(带扩展名)
+# /A 使用 ASCII 字符，而不使用扩展字符。(如果要显示中文，例如 tree /f /A >tree.txt)
+
 tree d:/            #显示D盘的文件目录结构
 
 # 示例
-tree /f >tree.txt
+tree /f >tree.txt	# 不带/f，只涉及文件夹(不涉及具体文件)
 ```
 
 
