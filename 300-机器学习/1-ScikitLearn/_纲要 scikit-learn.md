@@ -1,4 +1,16 @@
+scikit-learn只是最流行的机器学习库==之一==
+
+- 含交叉验证
+
 # [预处理](https://scikit-learn.org/stable/modules/preprocessing.html#preprocessing)
+
+| Preprocessing类 |                  |
+| --------------- | ---------------- |
+| 方法            | .fit(data)       |
+|                 | .transform(data) |
+| 属性            | .mean_           |
+
+
 
 ```python
 from sklearn import preprocessing

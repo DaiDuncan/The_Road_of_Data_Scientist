@@ -3,10 +3,10 @@
 <br>
 
 **源泉|乐趣Delight**
-- 💲Money
-- 🏋️‍Challenge
-- 💪Implement && Enlightenment🌈
-- 💖Share
+- Money💲
+- Challenge🏋️‍
+- Implement💪 && Enlightenment🌈
+- Share💖
 
 <br>
 

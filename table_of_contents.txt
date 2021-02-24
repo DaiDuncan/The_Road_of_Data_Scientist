@@ -1,11 +1,84 @@
-详细目录:.
+Workspace:.
 │  .gitignore
 │  LICENSE
 │  README.md
+│  table_of_contents.txt
 │  tree.txt
 │  _框架.md
 │  
-├─0-前端(核心基础)
+├─0-基本功(扎实)
+│  │  _汇总 编程语言注释及典例.md
+│  │  技巧 网页检索.md
+│  │  
+│  ├─1-Shell(默认Linux Unix)
+│  │      _cmd常用命令.md
+│  │      _shell 常用命令.md
+│  │      __基本命令.md
+│  │      
+│  ├─2-Git
+│  │      基本操作.md
+│  │      
+│  ├─Matlab
+│  │      Matlab-常用  基本语法.md
+│  │      Matlab工具箱  DSP.md
+│  │      Simulink  buffer函数.md
+│  │      工具  Matlab.md
+│  │      
+│  ├─SQL
+│  │      _纲要 SQL.md
+│  │      
+│  ├─_Tools
+│  │      Markdown.md
+│  │      Typora快捷键.md
+│  │      平台 Win.md
+│  │      思维导图.md
+│  │      环境 Anaconda.md
+│  │      环境 cmd(pip).md
+│  │      环境 jupyter notebook.md
+│  │      
+│  ├─_数据结构与算法
+│  │  ├─_刷题 LeetCode
+│  │  │      LeetCode  Two Sum.md
+│  │  │      
+│  │  ├─_刷题 酷Python
+│  │  │      _纲要.md
+│  │  │      困难 字符串转整数.md
+│  │  │      地狱 两个有序数组中找第k大的数.md
+│  │  │      
+│  │  ├─数据结构
+│  │  │      1 数组与链表.md
+│  │  │      2 栈和队列.md
+│  │  │      3 递归.md
+│  │  │      4 树.md
+│  │  │      5 Hash映射.md
+│  │  │      
+│  │  └─算法
+│  │          1 查找find.md
+│  │          2 排序sort.md
+│  │          3 贪心算法.md
+│  │          4 图论.md
+│  │          5 动态规划.md
+│  │          6 路径搜索.md
+│  │          _纲要O(Notation).md
+│  │          
+│  ├─_计算机网络
+│  │      CDN 加速.md
+│  │      HTTP.md
+│  │      HTTPS.md
+│  │      TCP 三次握手-四次挥手.md
+│  │      TCP-IP协议.md
+│  │      互联网协议.md
+│  │      算法 RSA加密.md
+│  │      
+│  ├─_设计模式
+│  │      _导读.md
+│  │      _纲要 编程思想.md
+│  │      
+│  └─_软件工程(加精)
+│          _导读.md
+│          _经验 性能分析与优化.md
+│          
+├─1-前端(核心基础)
 │  │  _简介 前端.md
 │  │  
 │  ├─1-HTML(内容)
@@ -26,34 +99,33 @@
 │  └─4-前端框架 Bootstrap
 │          _纲要.md
 │          
-├─0-后端(核心基础)
-│  ├─0-数据库
-│  │      _导读 Redis.md
-│  │      _数据库 纲要.md
-│  │      
-│  ├─1-Linux
-│  │      Linux  Ubuntu下的SSH.md
-│  │      
-│  ├─2-Web应用框架
-│  │  │  Web  网页访问全过程.md
-│  │  │  _纲要 Web应用.md
-│  │  │  对比 Web应用框架.md
+├─100-C C++
+│  │  _纲要 C++.md
+│  │  
+│  ├─0-基础
+│  │  ├─0 str
+│  │  ├─0 基本数据类型
+│  │  └─0 语法
+│  │          _框架 基本语法.md
+│  │          基础 运算符及其优先级.md
+│  │          进阶 模版.md
+│  │          
+│  ├─0-模块 STL(闲暇整理)
+│  │  │  _纲要 官方STL.md
 │  │  │  
-│  │  ├─Dash(基于Flask)
-│  │  ├─Django
-│  │  │  │  _纲要 Django.md
-│  │  │  │  
-│  │  │  └─Tutorial
-│  │  ├─Flask
-│  │  │      _纲要.md
-│  │  │      原理 使用模版.md
+│  │  ├─0 数据类型(含str)
+│  │  │      regex.md
+│  │  │      容器 vector.md
 │  │  │      
-│  │  └─Tornado
-│  ├─云服务
-│  ├─操作系统
-│  └─服务器
-│          PC DNS服务器.md
-│          
+│  │  ├─1 数学
+│  │  ├─2 文件IO
+│  │  └─3 网络
+│  ├─0-模块(常用)
+│  │      _纲要 库-常用.md
+│  │      _纲要 库-推荐(工作常用).md
+│  │      
+│  ├─_使用手册
+│  └─_积累
 ├─100-Python
 │  ├─0-Python基础
 │  │  │  _纲要 简介+安装环境.md
@@ -151,6 +223,12 @@
 │  │  ├─+模块statsmodels
 │  │  │      _纲要.md
 │  │  │      
+│  │  ├─+爬虫(含文件解析)
+│  │  │      requests等.md
+│  │  │      Web API.md
+│  │  │      应用 XML解析大全 (copy).md
+│  │  │      数据 HTML.md
+│  │  │      
 │  │  ├─0 数据类型(含str)
 │  │  │      +chardet 检测字符串编码.md
 │  │  │      base64 表示bit数据.md
@@ -191,14 +269,23 @@
 │  │  │      statistics.md
 │  │  │      
 │  │  ├─2 文件IO
-│  │  │      1 open.md
-│  │  │      2 sqlite.md
-│  │  │      3 序列化(json pickle msgpack).md
-│  │  │      configparser.md
-│  │  │      io StringIO.md
-│  │  │      _概念 IO编程.md
-│  │  │      压缩文件.md
-│  │  │      
+│  │  │  │  1 open.md
+│  │  │  │  2 sqlite.md
+│  │  │  │  3 序列化(json pickle msgpack).md
+│  │  │  │  configparser.md
+│  │  │  │  io StringIO.md
+│  │  │  │  _概念 IO编程.md
+│  │  │  │  压缩文件.md
+│  │  │  │  
+│  │  │  └─XML
+│  │  │          XML DOM(JavaScript).md
+│  │  │          XML DTD.md
+│  │  │          XMLHttpRequest对象.md
+│  │  │          XML简介与解析.md
+│  │  │          XSLT.md
+│  │  │          _实例 Logo提取字幕.md
+│  │  │          应用 XML解析大全.md
+│  │  │          
 │  │  ├─3 网络编程
 │  │  │  │  +requests.md
 │  │  │  │  HTMLParser.md
@@ -311,93 +398,33 @@
 │          技巧  maxmin函数.md
 │          技巧  range与xrange.md
 │          
-├─100-基本功(扎实)
-│  │  _汇总 编程语言范例与注释符号.md
-│  │  _经验 性能分析与优化.md
-│  │  
-│  ├─0-C C++
-│  │  │  _纲要 C++.md
+├─2-后端(核心基础)
+│  ├─0-数据库
+│  │      _导读 Redis.md
+│  │      _数据库 纲要.md
+│  │      
+│  ├─1-Linux
+│  │      Linux  Ubuntu下的SSH.md
+│  │      
+│  ├─2-Web应用框架
+│  │  │  Web  网页访问全过程.md
+│  │  │  _纲要 Web应用.md
+│  │  │  对比 Web应用框架.md
 │  │  │  
-│  │  ├─0-基础
-│  │  │  ├─0 str
-│  │  │  ├─0 基本数据类型
-│  │  │  └─0 语法
-│  │  │          _框架 基本语法.md
-│  │  │          基础 运算符及其优先级.md
-│  │  │          进阶 模版.md
-│  │  │          
-│  │  ├─0-模块 STL(闲暇整理)
-│  │  │  │  _纲要 官方STL.md
+│  │  ├─Dash(基于Flask)
+│  │  ├─Django
+│  │  │  │  _纲要 Django.md
 │  │  │  │  
-│  │  │  ├─0 数据类型(含str)
-│  │  │  │      regex.md
-│  │  │  │      容器 vector.md
-│  │  │  │      
-│  │  │  ├─1 数学
-│  │  │  ├─2 文件IO
-│  │  │  └─3 网络
-│  │  ├─0-模块(常用)
-│  │  │      _纲要 库-常用.md
-│  │  │      _纲要 库-推荐(工作常用).md
-│  │  │      
-│  │  ├─_使用手册
-│  │  └─_积累
-│  ├─1-Shell(默认Linux Unix)
-│  │      _cmd常用命令.md
-│  │      _shell 常用命令.md
-│  │      __基本命令.md
-│  │      
-│  ├─2-Git
-│  │      基本操作.md
-│  │      
-│  ├─Matlab
-│  │      Matlab-常用  基本语法.md
-│  │      Matlab工具箱  DSP.md
-│  │      Simulink  buffer函数.md
-│  │      工具  Matlab.md
-│  │      
-│  ├─SQL
-│  │      _纲要 SQL.md
-│  │      
-│  ├─_Tools
-│  │      Markdown.md
-│  │      平台 Win.md
-│  │      思维导图.md
-│  │      环境 Anaconda.md
-│  │      环境 cmd(pip).md
-│  │      环境 jupyter notebook.md
-│  │      
-│  ├─_数据结构与算法
-│  │  ├─_刷题 LeetCode
-│  │  │      LeetCode  Two Sum.md
-│  │  │      
-│  │  ├─_刷题 酷Python
+│  │  │  └─Tutorial
+│  │  ├─Flask
 │  │  │      _纲要.md
-│  │  │      困难 字符串转整数.md
-│  │  │      地狱 两个有序数组中找第k大的数.md
+│  │  │      原理 使用模版.md
 │  │  │      
-│  │  ├─数据结构
-│  │  │      1 数组与链表.md
-│  │  │      2 栈和队列.md
-│  │  │      3 递归.md
-│  │  │      4 树.md
-│  │  │      5 Hash映射.md
-│  │  │      
-│  │  └─算法
-│  │          1 查找find.md
-│  │          2 排序sort.md
-│  │          3 贪心算法.md
-│  │          4 图论.md
-│  │          5 动态规划.md
-│  │          6 路径搜索.md
-│  │          _纲要O(Notation).md
-│  │          
-│  ├─_设计模式
-│  │      _导读.md
-│  │      _纲要 编程思想.md
-│  │      
-│  └─_软件工程
-│          _导读.md
+│  │  └─Tornado
+│  ├─云服务
+│  ├─操作系统
+│  └─服务器
+│          PC DNS服务器.md
 │          
 ├─200-数据分析与可视化
 │  │  _模板 数据处理.md
@@ -540,9 +567,9 @@
 │  │          _汇总 API.md
 │  │          
 │  └─2.2-其他可视化库
+│      │  big_screen(自定义).md
 │      │  ggplot2.md
 │      │  _纲要.md
-│      │  自定义-big_screen.md
 │      │  
 │      ├─Bokeh
 │      │      快速入门-教程.md
@@ -560,10 +587,14 @@
 │      ├─商业软件 Tableau
 │      └─经典 The Grammar of Graphics
 ├─300-机器学习
-│  │  _纲要 AI汇总.md
+│  │  _模型优化.md
+│  │  _模型评估.md
+│  │  _纲要 机器学习汇总.md
 │  │  
-│  ├─+特征选择
-│  │      系数 树模型 PCA.md
+│  ├─+特征工程
+│  │      _导读.md
+│  │      选择系数 树模型 PCA.md
+│  │      针对 多元线性回归.md
 │  │      
 │  ├─0-ETL
 │  │      1 Extract.md
@@ -587,8 +618,6 @@
 │              3 决策树(分类).md
 │              4 朴素贝叶斯(概率区分).md
 │              5 SVM.md
-│              _模型优化.md
-│              _模型评估.md
 │              综合 集成算法.md
 │              
 ├─310-深度学习与神经网络
@@ -596,7 +625,10 @@
 │  │  _汇总 常见问题.md
 │  │  
 │  ├─0-NN汇总
-│  │      DNN.md
+│  │      ANN.md
+│  │      CNN.md
+│  │      GNN.md
+│  │      RNN.md
 │  │      
 │  └─1-PyTorch
 │          _纲要 PyTorch.md
@@ -611,20 +643,25 @@
 │  ├─NLP
 │  │      _纲要 NLP.md
 │  │      
-│  ├─_万能宝库
+│  ├─_工具百宝箱
 │  │      调试-追踪函数调用关系.md
 │  │      
-│  └─日常应用
+│  └─日常小技巧
+│          re应用.md
 │          文本处理.md
 │          
 ├─410-推荐系统
 │      _纲要 推荐系统.md
 │      
-├─技术底层(了解)
-│  ├─(科普-mimo)
+├─导读(领域概念+前沿热点)
+│  │  _百科(UP主-科普海报).md
+│  │  
+│  ├─(好奇了解-mimo)
 │  │      cookies.md
 │  │      malware恶意软件.md
 │  │      Video Game.md
+│  │      _待定 菜鸟教程.md
+│  │      _项目 web开发.md
 │  │      区块链.md
 │  │      基本概念.md
 │  │      数据结构与算法.md
@@ -646,27 +683,144 @@
 │  │      _纲要 大数据.md
 │  │      
 │  ├─3-云计算
+│  ├─_AI
+│  │      AI进展 2019.10.29.md
+│  │      _导读.md
+│  │      
+│  ├─_CS
+│  │      P与NP问题.md
+│  │      _导读 图解CS.md
+│  │      《七周七语言》.md
+│  │      趣谈 CS的50个误解.md
+│  │      
+│  ├─__思维
+│  │      _科学思维.md
+│  │      
+│  ├─_数学 物理
+│  │      _导读 图解Math.md
+│  │      _导读 图解Physcis.md
+│  │      日常物理.md
+│  │      概念 四元数.md
+│  │      物理基础.md
+│  │      
 │  └─常见项目架构
 │          Web APP及部署.md
 │          
-└─理论基础
-    ├─0 基础CS
-    │  └─计算机网络
-    │          CDN 加速.md
-    │          HTTP.md
-    │          HTTPS.md
-    │          TCP 三次握手-四次挥手.md
-    │          TCP-IP协议.md
-    │          互联网协议.md
-    │          算法 RSA加密.md
-    │          
-    ├─0 基础三部曲
-    │      信号处理-SuS MT MSV+BV.md
-    │      信息论基础.md
-    │      数学-NM ODS.md
-    │      数学-高数 线代 概统.md
-    │      数学应用-VES IF ME.md
+└─理论基础(脉络)
+    ├─+量化金融
+    │      _导读 量化金融1.md
+    │      _导读 量化金融2.md
     │      
+    ├─0 三部曲-信号处理
+    │      1 Signale und Systeme.md
+    │      2 Messtechnik.md
+    │      3 Methode der Signalverarbeitung.md
+    │      信息论基础.md
+    │      应用Bildverarbeitung.md
+    │      
+    ├─0 三部曲-数学
+    │      1 高数.md
+    │      2 数学-线代1 基础.md
+    │      2 数学-线代2 应用.md
+    │      2 数学-线代2 高阶.md
+    │      2 数学-线代3 张量分解1.md
+    │      2 数学-线代3 张量分解2.md
+    │      3 概统-假设检验1 理论.md
+    │      3 概统-假设检验2 实践.md
+    │      3 概统-假设检验3 工具.md
+    │      3 概统-纲要.md
+    │      Numerische Methode.md
+    │      Optimization of Dynamic Systems.md
+    │      工具-四元数.md
+    │      工具-张量.md
+    │      工具-线性代数理念.md
+    │      应用-Verteilte Ereignisdiskrete Systeme.md
+    │      应用Informationsfusion.md
+    │      应用Mustererkennung.md
+    │      微分方程.md
+    │      
+    ├─0 语言(语法)
+    │  ├─古汉语
+    │  │      0 导读.md
+    │  │      1 词类.md
+    │  │      2 句子成分与短语.md
+    │  │      3 简单句 复合句.md
+    │  │      
+    │  ├─德语
+    │  │  │  _0发音.md
+    │  │  │  《德语语法精讲》.md
+    │  │  │  《德语语法表解》.md
+    │  │  │  常用-物主冠词.md
+    │  │  │  理解-四格.md
+    │  │  │  短语-主谓(宾).md
+    │  │  │  补充-'s的用法.md
+    │  │  │  补充-基础.md
+    │  │  │  补充-疑难点.md
+    │  │  │  
+    │  │  ├─_常用手册
+    │  │  │      _基础.md
+    │  │  │      介词.md
+    │  │  │      变格.md
+    │  │  │      名词 词性.md
+    │  │  │      
+    │  │  ├─《德语入门》
+    │  │  │      虚拟式.md
+    │  │  │      补充-细节.md
+    │  │  │      重点.md
+    │  │  │      
+    │  │  ├─句法
+    │  │  │      10 句子的成分.md
+    │  │  │      11 句子成分的位置.md
+    │  │  │      12 句子的分类和形式.md
+    │  │  │      
+    │  │  └─词法
+    │  │          1.1 名词Das Substantiv.md
+    │  │          1.2 冠词.md
+    │  │          1.3 形容词  Das Adjektiv.md
+    │  │          1.4 数词.md
+    │  │          1.5 代词 Das Pronomen.md
+    │  │          2 动词 Das Verb.md
+    │  │          3.1 副词.md
+    │  │          3.2 介词.md
+    │  │          3.3 连词.md
+    │  │          
+    │  └─英语
+    │      │  +虚拟语气.md
+    │      │  +非谓语动词.md
+    │      │  _0发音.md
+    │      │  _纲要.md
+    │      │  成分-定语.md
+    │      │  短语-主谓(宾).md
+    │      │  补充 不定式.md
+    │      │  补充 词类.md
+    │      │  
+    │      ├─句法
+    │      │      12 句子成分及简单句.md
+    │      │      13 句子种类.md
+    │      │      14 复合句.md
+    │      │      15 直接引语与间接引语的转换.md
+    │      │      16 省略.md
+    │      │      17 强调句.md
+    │      │      18 倒装.md
+    │      │      19 虚拟语气.md
+    │      │      20 综合-主谓一致.md
+    │      │      21 综合-it的用法.md
+    │      │      
+    │      └─词法
+    │              1.1 名词.md
+    │              1.2 代词.md
+    │              1.3 冠词 数词.md
+    │              2.1 形容词 副词.md
+    │              2.2 介词+介词短语.md
+    │              2.3 连词.md
+    │              3.1 动词.md
+    │              3.2 动词的时态.md
+    │              3.3 动词的语态.md
+    │              3.4 非谓语动词.md
+    │              4 构词法.md
+    │              
     ├─1-贝叶斯学习与推断
+    │      知识与不确定度.md
+    │      
     ├─2-运筹学
     └─3-博弈论(多智能体)
