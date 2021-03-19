@@ -75,6 +75,15 @@ b = dict(k1=123,k2="morra")
 d[3] = 'good'	#3是key，即{3: 'good'}
 ```
 
+
+
+## 高级数据类型
+
+- defauldict
+- OrderedDict
+
+
+
 ## fromkeys()
 
 以指定key创建一个新的字典
@@ -120,6 +129,34 @@ stu_dict = {
     }
 }
 ```
+
+
+
+## 实用|从两个列表中创建
+
+@Leetcode [13]Roman to Integer
+
+```python
+# -*- coding: utf-8 -*-
+
+list1 = ['k1','k2','k3']
+list2 = ['v1','v2','v3']
+
+#方法一
+# map(fun, iter):x属于list1, y属于list2
+dic = dict(map(lambda x,y:[x,y],list1,list2)) #lambda是一个匿名函数
+print(dic)
+
+#方法二：
+print(dict(zip(list1,list2)))
+
+#方法三
+print({k:v for k,v in zip(list1,list2)})
+#反过来 将字典中的v和k调换
+print({v:k for k,v in zip(list1,list2)})
+```
+
+
 
 # 操作2|查 选/索引 改 增 删
 

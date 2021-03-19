@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 ```
 
-![image](https://cdn.nlark.com/yuque/0/2020/png/1136179/1591176765778-62260ef9-a1e4-4dba-870b-3d59a63619df.png?x-oss-process=image%2Fwatermark%2Ctype_d3F5LW1pY3JvaGVp%2Csize_14%2Ctext_6K-t6ZuALUREdW5jYW4%3D%2Ccolor_FFFFFF%2Cshadow_50%2Ct_80%2Cg_se%2Cx_10%2Cy_10)
+<img src="https://cdn.nlark.com/yuque/0/2020/png/1136179/1591176765778-62260ef9-a1e4-4dba-870b-3d59a63619df.png?x-oss-process=image%2Fwatermark%2Ctype_d3F5LW1pY3JvaGVp%2Csize_14%2Ctext_6K-t6ZuALUREdW5jYW4%3D%2Ccolor_FFFFFF%2Cshadow_50%2Ct_80%2Cg_se%2Cx_10%2Cy_10" alt="image" style="zoom:80%;" />
 
 
 

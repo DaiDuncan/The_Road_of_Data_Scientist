@@ -82,6 +82,10 @@ ANN中神经元模型的基本思想是将神经元的输入（作为加权总�
 
 ### 前向网络
 
+[link: Evan|深度学习-bp神经网络](https://zhuanlan.zhihu.com/p/96810689)
+
+![img](https://raw.githubusercontent.com/DaiDuncan/PicUploader/main/img2/20210319082627.jpeg)
+
 <img src="https://cdn.jsdelivr.net/gh/DaiDuncan/PicUploader/img/20210209111831.png" alt="image-20210209111831561" style="zoom:67%;" />
 
 hypersurface $\vec{w} \cdot \vec{x} +b = 0$是**decision boundary**决策边界 => 线性分类器：该边界基于输入的线性组合。

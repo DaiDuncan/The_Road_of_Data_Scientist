@@ -2,7 +2,8 @@
 <p align="right">—— 数据科学基本功</p>
 <br>
 
-**源泉|乐趣Delight**
+**源泉|乐趣Delight** => Passion
+
 - Money💲
 - Challenge🏋️‍
 - Implement💪 && Enlightenment🌈
