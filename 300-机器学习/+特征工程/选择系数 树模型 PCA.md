@@ -114,7 +114,7 @@ plt.xticks(rotation='vertical')
 plt.show()
 ```
 
-
+![图片](https://raw.githubusercontent.com/DaiDuncan/PicUploader/main/img2/20210320084039.webp)
 
 
 
