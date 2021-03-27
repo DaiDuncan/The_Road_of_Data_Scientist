@@ -250,5 +250,4 @@ DNN也演变成许多不同的网络拓扑结构，例如：
 
 # #参考文献
 
-版权声明：本文为CSDN博主「羊肉串串魅力无穷」的原创文章，遵循 CC 4.0 BY-SA 版权协议，转载请附上原文出处链接及本声明。
-原文链接：https://blog.csdn.net/lk3030/article/details/84678496
+[link: CSDN|羊肉串串魅力无穷](https://blog.csdn.net/lk3030/article/details/84678496)
