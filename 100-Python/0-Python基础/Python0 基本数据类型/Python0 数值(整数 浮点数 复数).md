@@ -63,7 +63,7 @@ n1 = 123
 n2 = 123
 ```
 
-![image.png](https://cdn.nlark.com/yuque/0/2020/png/1136179/1592983679239-ba0f2da7-a43e-4baf-a076-994188d7ae60.png)
+<img src="https://raw.githubusercontent.com/DaiDuncan/PicUploader/main/img2/20210330151639.png" alt="image.png" style="zoom:67%;" />
 
 ### 方式2
 
@@ -73,11 +73,11 @@ n1 = 123
 n2 = n1
 ```
 
-![image.png](https://cdn.nlark.com/yuque/0/2020/png/1136179/1592983700719-ad3c9733-b4e8-4a37-bbec-dcc5c582a2ea.png)
+<img src="https://raw.githubusercontent.com/DaiDuncan/PicUploader/main/img2/20210330151641.png" alt="image.png" style="zoom:80%;" />
 
 
 
-## python优化机制
+## python优化机制⭐
 
 在-5~257之间的数，如果使用第一种赋值方式，那么他们依然属于同一块内存
 
@@ -114,7 +114,7 @@ print(id(n1))    #查看变量的内存地址
 
 ## 运算顺序
 
-![image.png](https://cdn.nlark.com/yuque/0/2020/png/1136179/1592903010536-d558f568-de9b-427e-80a6-f9ab0009011d.png)
+![image.png](https://raw.githubusercontent.com/DaiDuncan/PicUploader/main/img2/20210330151644.png)
 
 
 

@@ -307,7 +307,7 @@ class Food:
     
 class Sandwich(Food):
     def __init__(self, ingredients):
-        Food.__init__(self, ingredients)	#注意在子类中根据需要初始化超类/父类 => 可用super().__init__(self, ingredients)替代
+        Food.__init__(self, ingredients)	#注意在子类中根据需要初始化超类/父类 => 可用super().__init__(self, ingredients)替代 ⭐
         
 pbj = Sandwich(["bread", "peanut butter", "jelly", "bread"])
 print(pbj.get_flavor())
