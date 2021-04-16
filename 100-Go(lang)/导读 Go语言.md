@@ -1,3 +1,7 @@
+go programming language: 搜索引擎区别go，协程golang
+
+
+
 [link: Go语言完整教程](https://books.studygolang.com/gopl-zh/)
 
 在上个世纪70年代，贝尔实验室的[Ken Thompson](http://genius.cat-v.org/ken-thompson/)和[Dennis M. Ritchie](http://genius.cat-v.org/dennis-ritchie/)合作发明了[UNIX](http://doc.cat-v.org/unix/)操作系统，同时[Dennis M. Ritchie](http://genius.cat-v.org/dennis-ritchie/)为了解决[UNIX](http://doc.cat-v.org/unix/)系统的移植性问题而发明了C语言，==贝尔实验室的[UNIX](http://doc.cat-v.org/unix/)和C语言两大发明奠定了整个现代IT行业最重要的软件基础==（目前的三大桌面操作系统的中[Linux](http://www.linux.org/)和[Mac OS X](http://www.apple.com/cn/osx/)都是源于[UNIX](https://books.studygolang.com/gopl-zh/)系统，两大移动平台的操作系统iOS和Android也都是源于[UNIX](http://doc.cat-v.org/unix/)系统。C系家族的编程语言占据统治地位达几十年之久）。
