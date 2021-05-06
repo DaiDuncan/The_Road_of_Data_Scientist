@@ -10,7 +10,7 @@
 
 用户获取指定范围内的数
 
-```
+```python
 range([start,] stop[, step])
 
 >>> range(1,5)    #代表从1到5(不包含5)
@@ -34,7 +34,7 @@ OUTPUT:
 
 用法和range只有**在使用for的时候**才会逐个创建元素，提高了性能，建议使用xrange。
 
-```
+```python
 a = xrange (0,5)
 print(type(a))
 
@@ -80,7 +80,7 @@ xrange(5)
 
 删去了原来的range，把原来的xrange改成了range
 
-```
+```python
 a = range (0,5)
 print(type(a))
 

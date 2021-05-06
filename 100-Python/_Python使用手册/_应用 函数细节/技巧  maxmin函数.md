@@ -2,7 +2,7 @@
 
 **声明**：以下内容主要基于[cnblogs | max/min函数的用法](https://www.cnblogs.com/whatisfantasy/p/6273913.html)
 
-```
+```python
 ## 源码
 
 def max(*args, key=None): # known special case of max
@@ -22,7 +22,7 @@ def max(*args, key=None): # known special case of max
 
 ## 一 初级技巧
 
-```
+```python
 tmp = max(1,2,4)
 print(tmp)
 
@@ -43,7 +43,7 @@ print(tmp)
 
 如果我们想找出一组数中绝对值最大的数，就可以配合lamda先进行处理，再找出最大值
 
-```
+```python
 a = [-9, -8, 1, 3, -4, 6]
 tmp = max(a, key=lambda x: abs(x))
 print(tmp)
@@ -57,7 +57,7 @@ print(tmp)
 
 如果有一组商品，其名称和价格都存在一个字典中，可以用下面的方法快速找到价格最贵的那组商品：
 
-```
+```python
 prices = {
     'A':123,
     'B':450.1,
@@ -82,6 +82,8 @@ print(max_prices) # (123, 'B')
 min_prices = min(zip(prices.values(), prices.keys()))
 print(min_prices) # (123, 'A')
 ```
+
+
 
 
 

@@ -12,7 +12,7 @@
 <br>
 
 **心态|专注Focus**<br>
-> “Only through focus can you do world-class things, no matter how capable you are.”  
+> “Only through **focus** can you do world-class things, no matter how capable you are.”  
 >
 > <p align="right">——Bill Gates</p>
 
@@ -49,15 +49,12 @@
 | 对象                            | 描述                                                         |
 | ------------------------------- | ------------------------------------------------------------ |
 | 【导读】领域入门                | AI，CS                                                       |
-|                                 |                                                              |
 | 【基础】理论脉络                | 三部曲系列：数学，**信号处理**，AI                           |
 |                                 | 信息论，运筹学                                               |
-|                                 |                                                              |
 | 【0基本功】                     | Shell<br>Git<br>SQL<br>Tools: 开发环境, 思维导图, Markdown(含Latex) |
 |                                 | **数据结构与算法**                                           |
 |                                 | 计算机网络，操作系统                                         |
 |                                 | 软件工程，设计模式                                           |
-|                                 |                                                              |
 | 【1编程语言 Python】一切皆对象⭐ | 基础：基本数据类型，基本语法，变量-内存-作用域               |
 |                                 | 进阶：OOP(封装 继承 多态)，元类，类的定制，运算符重载        |
 |                                 | 特性：函数式编程，反射，自省 => 迭代器、生成器、装饰器       |
@@ -79,7 +76,6 @@
 | 【3应用】基础版   | 数据挖掘                |
 |                   | 推荐系统                |
 |                   | NLP(关注知识图谱)       |
-
 
 
 <br>
