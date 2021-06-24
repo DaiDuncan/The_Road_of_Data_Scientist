@@ -1,3 +1,20 @@
+![image-20210615112936294](https://raw.githubusercontent.com/DaiDuncan/PicUploader/main/img3/20210615112936.png)
+
+
+
+人工智能主要分成：
+计算机视觉、自然语言处理、语音处理、推荐系统（知识图谱）四个大类
+
+
+
+其中计算机视觉是距离我们生活最近的；
+
+人工智能入门推荐书：周志华教授的《机器学习》又称西瓜书、李航教授的《统计学习方法》
+
+针对计算机视觉领域，推荐Richard Szelisk教授的《Computer Vision：Algorithm and Applications》  中文名叫《计算机视觉：算法与应用》
+
+
+
 # AI简介
 
 agent: 引发行动的某种事物

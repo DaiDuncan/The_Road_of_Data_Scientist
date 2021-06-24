@@ -124,6 +124,13 @@
 
 
 
+- 符号主义：公理化概念 => 归纳、推理
+- 联结主义：神经网络 & 计算力💡(模拟人类大脑)
+
+<img src="https://raw.githubusercontent.com/DaiDuncan/PicUploader/main/img3/20210615145001.png" alt="image-20210615145001146" style="zoom:80%;" />
+
+
+
 ## 2. 演化的阶段
 
 ![图片](https://raw.githubusercontent.com/DaiDuncan/PicUploader/main/img2/20210323214210.webp)

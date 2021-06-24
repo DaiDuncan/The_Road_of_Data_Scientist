@@ -40,7 +40,45 @@
 
 - 三维：实轴，虚轴，频率轴
 
+
+
+概念|komplexen Spektrum
+
 <img src="https://raw.githubusercontent.com/DaiDuncan/PicUploader/main/img2/20210428205333.png" alt="image-20210428205333200" style="zoom:67%;" />
+
+重点：
+
+- 时域采样间隔是$T=\frac{1}{f_A}$ => 对应到频域中的采样间隔是$f_A$
+
+- 时域乘以一系列dirac函数 => 频域卷积这一系列变换到频域中的dirac函数
+
+## 知识点
+
+### 1 Dirac冲激信号
+
+$$
+\int_{-\infty}^{\infty} \delta(x-x_0) \cdot f(x) dx = f(x_0) \\
+\int_{-\infty}^{\infty} \delta(x-x_0) dx = 1 \\
+$$
+
+$$
+(\delta * \delta)(t) =   \int_{-\infty}^{\infty} \delta(t-\tau) \cdot \delta(\tau) d\tau = \delta(t) \\
+3\delta(t-2) * 2 \delta(t-3) = 6 \delta(t-5)
+$$
+
+
+
+ ## 2 Aliasing
+
+本质：采样频率不够，信号的频率成分混叠在一起
+
+1 针对采样率|提高采样频率
+
+2 针对信号|低通滤波器
+
+- 降低信号的频率，但也丢失了部分信息
+
+
 
 
 

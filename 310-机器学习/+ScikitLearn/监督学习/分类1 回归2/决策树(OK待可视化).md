@@ -924,3 +924,49 @@ DecisionTreeClassifier(class_weight=None, criterion='entropy', max_depth=None,
 # #参考文献
 
 [link: 公众号|白话机器学习之决策树](https://mp.weixin.qq.com/s?__biz=MzA4ODUxNjUzMQ==&mid=2247485256&idx=1&sn=d686b2f359fb83d0152502f97005adcd&scene=19#wechat_redirect)
+
+
+
+# [补充|通俗理解](https://www.bilibili.com/video/BV1HV411b7JR)
+
+![image-20210616224609394](https://raw.githubusercontent.com/DaiDuncan/PicUploader/main/img3/20210616224610.png)
+
+决策树：为达到目标，根据一定的条件进行选择的过程
+
+- ML中常用于分类
+
+
+
+决策树数据结构：节点 & 边
+
+- 节点：根据**样本的特征**做出判断
+  - 根节点：最初的分支点
+  - 子节点
+  - 叶子节点：不再有分支 => 代表分类结果
+- 边：指示方向
+
+
+
+指标：熵 => 描述混乱的程度
+
+- 分类结果/叶子节点中：样本种类越多越混乱，种类完全单一则熵为0
+
+
+
+原理：随着构造树深度的增加，**熵下降得越快，决策树的分类效率**越高
+
+最大的优点：天然的可解释性 => 各特征的组合：决定了分类
+
+缺点：数据有特例 => 过拟合(完美分类：叶子节点只有极少量数据)
+
+
+
+解决过拟合问题：去掉分支
+
+剪枝1）预剪枝Pre-Pruning：训练前规定条件
+
+- 树达到某一深度就停止训练
+
+剪枝2）后剪枝Post-Pruning：先找到决策树
+
+- 依据条件：比如限制叶子节点的个数，**去掉一部分分支**

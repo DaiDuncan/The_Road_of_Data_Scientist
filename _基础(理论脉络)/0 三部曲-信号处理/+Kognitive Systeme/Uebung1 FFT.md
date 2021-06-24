@@ -289,9 +289,6 @@ import scipy.linalg
 
 2 可视化对象
 
-- 
-- 
-
 ```python
 def last_index_leq(a, x):
     t = np.where(a<=x)[0]
@@ -370,3 +367,8 @@ visualize_convolution(x, f, f)
 visualize_convolution(x, f, g)
 ```
 
+
+
+# 总结
+
+> 关键在于卷积具体的计算过程和FFT算法的理解

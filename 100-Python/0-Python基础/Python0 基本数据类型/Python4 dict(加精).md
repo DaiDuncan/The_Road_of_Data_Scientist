@@ -58,7 +58,21 @@ print(issubclass(bool, int))  # 判断bool类型是否为int类型的子类：Tr
 
 # 操作1|创建
 
-创建时如果同一个键被赋值两次，后一个值会被记住
+>  创建时如果同一个键被赋值两次，后一个值会被记住
+
+1 创建空字典
+
+```python
+>>> dic = {}
+>>> type(dic)
+<type 'dict'>
+
+a = dict()
+```
+
+
+
+2 直接赋值
 
 ```python
 d = {
@@ -67,9 +81,15 @@ d = {
     "gender": 'm'
 }
 
-a = dict()
-b = dict(k1=123,k2="morra")
-
+### 嵌套字典
+stu_dict = {
+    'name': '小明',
+    'age': 12,
+    'score': {
+        '语文': 90,
+        '数学': 98
+    }
+}
 
 ### int也可以作为key
 d[3] = 'good'	#3是key，即{3: 'good'}
@@ -77,16 +97,47 @@ d[3] = 'good'	#3是key，即{3: 'good'}
 
 
 
-## 高级数据类型
+3 通过关键字dict和关键字参数创建
 
-- defauldict
-- OrderedDict
+```python
+a = dict()
+b = dict(k1=123,k2="morra")
+```
 
 
 
-## fromkeys()
+4 通过**二元组**列表创建
 
-以指定key创建一个新的字典
+```python
+>>> list = [('spam', 1), ('egg', 2), ('bar', 3)]
+>>> dic = dict(list)
+>>> dic
+{'bar': 3, 'egg': 2, 'spam': 1}
+```
+
+
+
+5 dict和zip结合创建
+
+```python
+>>> dic = dict(zip('abc', [1, 2, 3]))	#zip本意：多个列表，每个列表选择一个元素组成元组的序列
+>>> dic
+{'a': 1, 'c': 3, 'b': 2}
+```
+
+
+
+6 通过字典推导式创建⭐
+
+```python
+>>> dic = {i:2*i for i in range(3)}
+>>> dic
+{0: 0, 1: 2, 2: 4}
+```
+
+
+
+7 fromkeys()：以指定key创建一个新的字典
 
 ```python
 stu_dict = dict.fromkeys(['小明', '小刚'], 90)
@@ -98,7 +149,18 @@ fromkeys方法接受两个参数：
 - 第一个参数是序列，可以是列表，也可以是元组，方法将以这个序列里的元素做key，生成新的字典
 - value由第二个参数来决定，我在代码里传入参数90，所有key所对应的value就都是90，如果不传这个参数，==默认value为None==
 
-## setdefault()
+
+
+
+
+## 高级数据类型
+
+- defauldict
+- OrderedDict
+
+
+
+## setdefault() => 类似defauldict
 
 和get有些类似，如果key不存在，则增加新的键值对，如果key已经存在，则不做任何操作
 
@@ -117,19 +179,6 @@ print(score_dict)	#结果：{'小明': 96, '小刚': 98, '小红': 94, '小丽':
 
 
 
-## 嵌套字典
-
-```python
-stu_dict = {
-    'name': '小明',
-    'age': 12,
-    'score': {
-        '语文': 90,
-        '数学': 98
-    }
-}
-```
-
 
 
 ## 实用|从两个列表中创建
@@ -142,19 +191,21 @@ stu_dict = {
 list1 = ['k1','k2','k3']
 list2 = ['v1','v2','v3']
 
-#方法一
+### 方法1|花式：结合map(lambda )组成二元元组的列表 => 本质同方法2
 # map(fun, iter):x属于list1, y属于list2
 dic = dict(map(lambda x,y:[x,y],list1,list2)) #lambda是一个匿名函数
 print(dic)
 
-#方法二：
+### 方法2：zip合并两个数组
 print(dict(zip(list1,list2)))
 
-#方法三
+### 方法3：结合字典推导式
 print({k:v for k,v in zip(list1,list2)})
 #反过来 将字典中的v和k调换
 print({v:k for k,v in zip(list1,list2)})
 ```
+
+
 
 
 

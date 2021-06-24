@@ -615,3 +615,38 @@ GBDT是由多棵树组成的，而且每一颗树都依赖于之前树建立后�
 【10】GBDT原理与实践-多分类篇，地址：https://blog.csdn.net/qq_22238533/article/details/79199605
 【11】代码实战之GBDT，地址：https://louisscorpio.github.io/2018/01/19/%E4%BB%A3%E7%A0%81%E5%AE%9E%E6%88%98%E4%B9%8BGBDT/
 【12】Freemanzxp/GBDT_Simple_Tutorial，地址：https://github.com/Freemanzxp/GBDT_Simple_Tutorial
+
+
+
+# [补充|通俗理解](https://www.bilibili.com/video/BV1U5411n7vH)
+
+与随机森林的区别：
+
+1）GBDT中的树都是回归树
+
+- 分类树：单纯将苹果区分为好，坏
+- 回归树：能给苹果的好坏程度打分
+
+2）GBDT的每棵树都在前一棵树的基础上
+
+<img src="https://raw.githubusercontent.com/DaiDuncan/PicUploader/main/img3/20210617091203.png" alt="image-20210617091202685" style="zoom: 67%;" />
+
+
+
+应用：网页，商品，电影的**评分**
+
+- 预测关联程度，点击率，或者用户的喜好程度
+
+=> 搜索，广告，推荐系统
+
+
+
+优点：
+
+- 处理标签，数值等各类数据
+- 解释性强
+
+缺点：
+
+- 树与树之间是依赖的：需要较长的训练时间
+

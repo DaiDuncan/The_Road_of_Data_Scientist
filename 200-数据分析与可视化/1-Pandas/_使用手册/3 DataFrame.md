@@ -157,9 +157,193 @@ numpy的速度比dataframe快，其次对于txt或者csv的数据，==用map，r
 
 > CSV (comma-separated values)
 >
+> - CSV 是一种通用的、相对简单的文件格式，被用户、商业和科学广泛应用
+>
 > ```python
 > df.to_csv('data/foo.csv')
 > pd.read_csv(filepath)
+> print(pd.read_csv(filepath).to_string())	#用于返回 DataFrame 类型的数据，如果不使用该函数，则输出结果为数据的前面 5 行和末尾 5 行
+> ```
+>
+> 
+>
+> JSON
+>
+> ```python
+> df = pd.read_json('sites.json')
+> print(df.to_string())
+> 
+> 
+> 
+> #==# 字典格式的 JSON                                    
+> s = {
+>     "col1":{"row1":1,"row2":2,"row3":3},
+>     "col2":{"row1":"x","row2":"y","row3":"z"}
+> }
+> # 读取 JSON 转为 DataFrame                                     
+> df = pd.DataFrame(s)
+> print(df)
+> 
+> 
+> 
+> #==# 从 URL 中读取 JSON 数据
+> URL = 'https://static.runoob.com/download/sites.json'
+> df = pd.read_json(URL)
+> print(df)
+> 
+> 
+> 
+> #==# 内嵌的 JSON 数据
+> df = pd.read_json('nested_list.json')
+> print(df)
+> '''
+>           school_name   class                                           students
+> 0  ABC primary school  Year 1  {'id': 'A001', 'name': 'Tom', 'math': 60, 'phy...
+> 1  ABC primary school  Year 1  {'id': 'A002', 'name': 'James', 'math': 89, 'p...
+> 2  ABC primary school  Year 1  {'id': 'A003', 'name': 'Jenny', 'math': 79, 'p...
+> '''
+> #1 这时我们就需要使用到 json_normalize() 方法将内嵌的数据完整的解析出来
+> import pandas as pd
+> import json
+> 
+> # 使用 Python JSON 模块载入数据
+> with open('nested_list.json','r') as f:
+>     data = json.loads(f.read())
+> 
+> # 展平数据:使用了参数 record_path 并设置为 ['students'] 用于展开内嵌的 JSON 数据 students
+> df_nested_list = pd.json_normalize(data, record_path =['students'])
+> print(df_nested_list)
+> '''
+>      id   name  math  physics  chemistry
+> 0  A001    Tom    60       66         61
+> 1  A002  James    89       76         51
+> 2  A003  Jenny    79       90         78
+> '''
+> 
+> #2 显示结果还没有包含 school_name 和 class 元素，如果需要展示出来可以使用 meta 参数来显示这些元数据
+> # 展平数据
+> df_nested_list = pd.json_normalize(
+>     data,
+>     record_path =['students'],
+>     meta=['school_name', 'class']
+> )
+> print(df_nested_list)
+> '''
+>      id   name  math  physics  chemistry         school_name   class
+> 0  A001    Tom    60       66         61  ABC primary school  Year 1
+> 1  A002  James    89       76         51  ABC primary school  Year 1
+> 2  A003  Jenny    79       90         78  ABC primary school  Year 1
+> '''
+> 
+> 
+> 
+> #==# 更复杂的 JSON 数据，该数据嵌套了列表和字典
+> {
+>     "school_name": "local primary school",
+>     "class": "Year 1",
+>     "info": {
+>       "president": "John Kasich",
+>       "address": "ABC road, London, UK",
+>       "contacts": {
+>         "email": "admin@e.com",
+>         "tel": "123456789"
+>       }
+>     },
+>     "students": [
+>     {
+>         "id": "A001",
+>         "name": "Tom",
+>         "math": 60,
+>         "physics": 66,
+>         "chemistry": 61
+>     },
+>     {
+>         "id": "A002",
+>         "name": "James",
+>         "math": 89,
+>         "physics": 76,
+>         "chemistry": 51
+>     },
+>     {
+>         "id": "A003",
+>         "name": "Jenny",
+>         "math": 79,
+>         "physics": 90,
+>         "chemistry": 78
+>     }]
+> }
+> # 使用 Python JSON 模块载入数据
+> with open('nested_mix.json','r') as f:
+>     data = json.loads(f.read())
+>    
+> df = pd.json_normalize(
+>     data,
+>     record_path =['students'],
+>     meta=[
+>         'class',
+>         ['info', 'president'],
+>         ['info', 'contacts', 'tel']
+>     ]
+> )
+> print(df)
+> '''
+>      id   name  math  physics  chemistry   class info.president info.contacts.tel
+> 0  A001    Tom    60       66         61  Year 1    John Kasich         123456789
+> 1  A002  James    89       76         51  Year 1    John Kasich         123456789
+> 2  A003  Jenny    79       90         78  Year 1    John Kasich         123456789
+> '''
+> 
+> 
+> 
+> #==# 读取内嵌数据中的一组数据
+> # 实例文件 nested_deep.json，我们只读取内嵌中的 math 字段
+> {
+>     "school_name": "local primary school",
+>     "class": "Year 1",
+>     "students": [
+>     {
+>         "id": "A001",
+>         "name": "Tom",
+>         "grade": {
+>             "math": 60,
+>             "physics": 66,
+>             "chemistry": 61
+>         }
+>  
+>     },
+>     {
+>         "id": "A002",
+>         "name": "James",
+>         "grade": {
+>             "math": 89,
+>             "physics": 76,
+>             "chemistry": 51
+>         }
+>        
+>     },
+>     {
+>         "id": "A003",
+>         "name": "Jenny",
+>         "grade": {
+>             "math": 79,
+>             "physics": 90,
+>             "chemistry": 78
+>         }
+>     }]
+> }
+> import pandas as pd
+> from glom import glom	#glom 模块允许我们使用 . 来访问内嵌对象的属性
+> 
+> df = pd.read_json('nested_deep.json')
+> 
+> data = df['students'].apply(lambda row: glom(row, 'grade.math'))	#grade.math
+> print(data)
+> '''
+> 0    60
+> 1    89
+> 2    79
+> Name: students, dtype: int64
+> '''
 > ```
 >
 > 
@@ -248,6 +432,8 @@ con = MySQLdb.connect(host='localhost', db='databasename')
 df
 df.head()
 df.tail()
+df.info()	#展示每列的内容：包括null值的个数，数据类型
+df.to_string()	#展示完整的b
 
 df.index
 df.columns
@@ -860,14 +1046,27 @@ obj.index.is_unique # False
   `df.max()`
   `df.std()`
   `df.corr()`  相关系数矩阵
-  `df..cov()` 协方差矩阵
+  `df.cov()` 协方差矩阵
   `df.corrwith()`  计算其列或行跟另一个Series或DataFrame之间的相关系数
 
 ![image](https://cdn.nlark.com/yuque/0/2020/png/1136179/1591174539244-42c32a64-f5ec-4e8d-b843-0bf378711f0c.png?x-oss-process=image%2Fwatermark%2Ctype_d3F5LW1pY3JvaGVp%2Csize_10%2Ctext_6K-t6ZuALUREdW5jYW4%3D%2Ccolor_FFFFFF%2Cshadow_50%2Ct_80%2Cg_se%2Cx_10%2Cy_10)
 
 
 
+### .corr()
 
+> 自动忽视 非numeric 列
+
+```python
+df.corr()
+'''源数据：不同对象的运动数据
+            Duration     Pulse  Maxpulse  Calories
+  Duration  1.000000 -0.155408  0.009403  0.922721
+  Pulse    -0.155408  1.000000  0.786535  0.025120
+  Maxpulse  0.009403  0.786535  1.000000  0.203814
+  Calories  0.922721  0.025120  0.203814  1.000000
+'''
+```
 
 
 
@@ -916,6 +1115,9 @@ df.replace(a, b)
 # 专题|可视化
 
 ```python
+import pandas as pd
+import matplotlib.pyplot as plt
+
 ### 散点图
 plt = data.plt(kind='scatter', x='X', y='Y').get_figure()
 plt.savefig('')
@@ -929,6 +1131,8 @@ plt = data.plot(kind='bar', stacked=True).get_figure()
 
 ### 箱形图：中位数，平均数，四分位数等
 data.boxplot()
+
+plt.show()
 ```
 
 

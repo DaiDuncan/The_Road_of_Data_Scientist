@@ -33,6 +33,12 @@ from io import StringIO  #Python3
 
 # CSV & text files
 
+```python
+pd.read_csv('data.csv',)  
+```
+
+
+
 ## 解析选项 Parsing options 
 
 - 基本参数 Basic 
@@ -44,7 +50,7 @@ from io import StringIO  #Python3
   - delim_whitespace=False 空白符是否包括(如' '或'\t')
 - Column and index locations and names
   - header='infer' 
-    - header=0表示从数据的第一行中推断出column names
+    - header=0表示从数据的第一行中推断出column names => ==也就是说第一行是标题行(index=0)，第二行开始才是数据(index=1)==
   - names=None  column names的列表
   - index_col=None 设置某一列作为index列
   - usecols=None 过滤列
@@ -349,9 +355,15 @@ df = pd.read_csv('s3://pandas-test/tips.csv')
   - float_format
   - length 
 
+
+
 # JSON
 
+> **JSON = Python Dictionary** y
+
 Series和DataFrame能转化为有效的JSON文件
+
+
 
 ## 写入JSON
 

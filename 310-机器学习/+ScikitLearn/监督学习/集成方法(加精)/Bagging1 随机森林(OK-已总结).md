@@ -396,3 +396,35 @@ my_rf = RandomForestClassifier(n_estimators=300)
 [link: 公众号|easyAI](https://easyai.tech/ai-definition/random-forest/)
 
 [link: 博客|图解随机森林 2020.08.30](https://segmentfault.com/a/1190000023825756?utm_source=sf-similar-article)
+
+
+
+# [补充|通俗理解](https://www.bilibili.com/video/BV11i4y1F7n4)
+
+![image-20210617090259792](https://raw.githubusercontent.com/DaiDuncan/PicUploader/main/img3/20210617090301.png)
+
+随机选择：
+
+- 部分样本
+- 部分特征
+
+原因：
+
+- 不清楚异常值
+- 不清楚哪些特征最重要
+
+
+
+树与树之间是独立的 => 民主投票：得票多就是预测的分类@KNN方法
+
+优点：
+
+- 树之间是独立的 => 同时训练，高效快速
+- 不容易过拟合(部分特征，深度小)
+- 能处理特征多的高维数据，而且不需要做特征选择
+- 合理训练后准确性很高 => 可作为分类方法的Baseline
+
+
+
+集成学习：可以是不同的模型(神经网络可以和决策树共存在同一个集成系统中)
+

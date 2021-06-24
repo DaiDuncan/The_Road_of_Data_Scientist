@@ -496,3 +496,35 @@ skimage 可以和它相媲美，集成了很多图像处理函数，其中对不
 - http://note.youdao.com/noteshare?id=10dac8bb5d83358ffe73c792e1490a7b&sub=C7A3E74A1088435ABBE11AB91AC37194
 - https://time.geekbang.org/
 
+
+
+# [通俗理解](https://www.bilibili.com/video/BV1mf4y1k7UC)
+
+<img src="https://raw.githubusercontent.com/DaiDuncan/PicUploader/main/img3/20210617091916.png" alt="image-20210617091915042" style="zoom: 67%;" />
+
+K表示样本的类别数
+
+0 初始化分类中心点
+
+1 分类
+
+2 迭代
+
+
+
+目标：分类结果相同，不再变化
+
+基于前提假设：特征空间中分布相近的两个点，属于同一个分类的可能性更高
+
+
+
+优点：
+
+- 无监督学习
+- 可解释性高
+- 简单、高效
+
+缺点：
+
+- 不如监督学习有效
+- k值的选择很重要@me|启发式选择作为辅助

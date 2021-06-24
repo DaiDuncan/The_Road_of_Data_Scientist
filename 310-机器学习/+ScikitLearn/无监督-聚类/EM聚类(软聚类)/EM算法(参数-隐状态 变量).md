@@ -422,3 +422,89 @@ print(calinski_harabaz_score(data, prediction))
 - http://note.youdao.com/noteshare?id=2949a4c56e27b97df5fa282dc75060e7&sub=B08633D2250849F2B33A5947351E8389
 - https://www.cnblogs.com/coshaho/p/9573367.html
 - https://blog.csdn.net/taka_is_beauty/article/details/88095032
+
+
+
+# [通俗理解](https://www.bilibili.com/video/BV1wz4y1U74r)
+
+![image-20210617092443080](https://raw.githubusercontent.com/DaiDuncan/PicUploader/main/img3/20210617092443.png)
+
+**概率**：让调查匿名化
+
+
+
+问题：想要调查人群中，吸大麻的比例？
+
+1 补充问题：手机尾号是偶数吗？
+
+设计实验|投掷硬币：正面回答原问题，反面回答补充问题 => ==关键点：不需要告知回答的是哪个问题(保护隐私)==，只要回到yes or no
+
+>  💡@me|既然能够保护隐私 => 也能够揭露隐私/秘密
+
+注意：上图计算公式有问题
+
+- 假设总的样本数是2n
+  - 硬币投掷等概率(大样本的前提下)：n个回答Q1
+- 记吸大麻的概率是x，不吸的概率是1-x
+- 手机尾号是偶数的概率是y，不是偶数的概率是1-y
+- 结合回答No的比例是z
+  - $n\cdot(1-x) + (1-y) \cdot n = 2n \cdot z $ 
+  - 结果是$x=2-2z-y$
+
+
+
+2 补充问题：你吸烟吗？(概率未知)
+
+设计实验：5个人为一个小组，==给他们同一个问题==，得到成组的问卷结果
+
+<img src="https://raw.githubusercontent.com/DaiDuncan/PicUploader/main/img3/20210617100608.png" alt="image-20210617100607876" style="zoom: 50%;" />
+
+step1|随机化 **参数**
+
+- 吸大麻 x = 0.3
+- 抽烟 y = 0.6
+- => 基于参数的直觉：成组答案中，No的数量越多，越可能是Q1(因为不吸大麻，也就是**No的概率大**)
+
+
+
+step2|E-step：基于参数计算 => 未知变量/问题归属的期望
+
+- 参数 => 概率值 => 归一化：得到问题归属的概率
+
+以A1为例：
+$$
+\frac{0.3^{2} \cdot 0.7^{3}}{0.3^{2} \cdot 0.7^{3} + 0.6^{2} \cdot 0.4^{3}} = 0.57
+$$
+<img src="https://raw.githubusercontent.com/DaiDuncan/PicUploader/main/img3/20210617103355.png" alt="image-20210617103355064" style="zoom:67%;" />
+
+ 
+
+step3|M-step：更新参数(隐含假设：maximal likelihood)
+
+- 基于上述“问题归属的概率”，根据数量 => **计算期望**
+- ==汇总所有的可能性==之后 => 重新更新参数：也就是比例结果
+
+<img src="https://raw.githubusercontent.com/DaiDuncan/PicUploader/main/img3/20210617104225.png" alt="image-20210617104225427" style="zoom:67%;" />
+
+> me|启发：
+>
+> 在2中：如果给5人小组，不是同一个问题，那么就**无从计算E-step**
+>
+> - 因为不知道具体的概率分布/数据分布
+
+
+
+补充：K-means是EM的特例
+
+- 1 随机赋初始值
+- 2 反复迭代，不断逼近
+- 3 直到最后稳定
+
+
+
+K-means目标是获得类别的中心坐标
+
+EM找到样本的分布规律@常用高斯分布
+
+<img src="https://raw.githubusercontent.com/DaiDuncan/PicUploader/main/img3/20210617104427.png" alt="image-20210617104426701" style="zoom:67%;" />
+

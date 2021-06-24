@@ -109,7 +109,25 @@ test = np.zeros((m, n), dtype=np.int)
 ### 注意|踩坑
 
 ```python
->>> lists = [[]] * 3
+#== 列表乘以标量：表示列表中的元素重复多次
+>>> [] * 2	#因为是None，所以无所谓指向同一个引用
+[]
+
+>>> [0] * 2	#因为是整数，所以无所谓指向同一个引用
+[0, 0]
+
+>>> [[0]] * 2
+[[0], [0]]
+>>> temp = [[0]] * 2	
+>>> temp[0].append(1)	#temp[0]和temp[1]指向同一个引用：同步变化(@复习引用-浅拷贝-深拷贝)
+>>> temp
+[[0, 1], [0, 1]]
+```
+
+
+
+```python
+>>> lists = [[]] * 3	#创建3个指向同一个引用的[]
 >>> lists
 [[], [], []]
 >>> lists[0].append(3)
@@ -117,7 +135,7 @@ test = np.zeros((m, n), dtype=np.int)
 [[3], [3], [3]]
 
 # 正确做法
->>> lists = [[] for i in range(3)]
+>>> lists = [[] for i in range(3)]	#创建3个指向不同引用的[]
 >>> lists[0].append(3)
 >>> lists[1].append(5)
 >>> lists[2].append(7)

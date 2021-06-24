@@ -446,13 +446,11 @@ SVM 既可以做分类，也可以做回归。
 >>2. poly：多项式核函数, 多项式核函数可以将数据从低维空间映射到高维空间，但**参数比较多，计算量大**。
 > > 3. rbf：高斯核函数（默认）,高斯核函数同样可以将样本映射到高维空间，但相比于多项式核函数来说所需的参数比较少，**通常性能不错，所以是默认使用的核函数**。
 > > 4. sigmoid：sigmoid 核函数,sigmoid 经常用在神经网络的映射中。因此当选用 sigmoid 核函数时，SVM 实现的是**多层神经网络**。
-> > 
 > 
 > - 参数 C 代表目标函数的惩罚系数，惩罚系数指的是分错样本时的惩罚程度，默认情况下为 1.0。
 >   - 当 C 越大的时候，分类器的准确性越高，但同样容错率会越低，泛化能力会变差。
 >   - 相反，C 越小，泛化能力越强，但是准确性会降低。
 > - 参数 gamma 代表核函数的**系数**，**默认为样本特征数的倒数**，即 gamma = 1 / n_features。
->
 
 
 
@@ -725,3 +723,32 @@ print('准确率: ', metrics.accuracy_score(prediction,test_y))
 - http://note.youdao.com/noteshare?id=dd8506ca4fdf4a3d68757f985dfbb8e8&sub=4401DBD7C07C4D8C883F997B92563591
 - http://note.youdao.com/noteshare?id=d50add1394ad30ed2ce4438a93a38ffd&sub=1D7BA8DE2F354111A7B3D58E7FBC7F84
 - https://www.jiqizhixin.com/articles/2018-10-17-20
+
+
+
+# 补充[|通俗理解](https://www.bilibili.com/video/BV1yo4y1o7A3/?spm_id_from=333.788.recommend_more_video.-1)
+
+KNN画圈
+
+
+
+SVM画线
+
+- 距离分界线越远，概率越高(可信程度更高)
+- 只关注支持向量的样本
+
+1 不能硬分类 => 软分类
+
+2 线性无法区分 => 非线性@核方法
+
+
+
+优点：SVM对样本依赖小，不会过拟合，小样本效果也很好
+
+应用：广告识别，垃圾邮件识别等
+
+
+
+在神经网络之前，SVM和随机森林是应用最广的方法
+
+![image-20210614220420405](https://raw.githubusercontent.com/DaiDuncan/PicUploader/main/img3/20210614220421.png)
